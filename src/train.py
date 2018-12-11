@@ -6,7 +6,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def train_model(train):
-    excluded_features = ['target', 'user_hash']  # , 'data_type_3_m1', 'data_type_1_m1', 'data_type_2_m1']
+    excluded_features = ['target', 'user_hash',
+                         # 'City_post_HOME', 'City_post_WORK',
+                         # 'Raion_post_HOME', 'Raion_post_WORK',
+                         # 'City_post_HOME', 'City_post_WORK',
+                         'lat_quad_home', 'lat_quad_work',
+                         'lon_quad_home', 'lon_quad_work',
+                         'LAT_WORK', 'LAT_HOME',
+                         'LON_WORK', 'LON_HOME']  # , 'data_type_3_m1', 'data_type_1_m1', 'data_type_2_m1']
     train_features = [x for x in train.columns if x not in excluded_features]
 
     cats = list(train.dtypes[train.dtypes == 'object'].index.values)
